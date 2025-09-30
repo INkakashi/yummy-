@@ -1,0 +1,12 @@
+pages required:
+
+1 login and registeration
+2 home page - search, scroll through recipe click recipe
+3 profile - pic manage own recipes and edit
+4 saperate page for an individual recipe - like and comments
+
+mongodb models required:
+
+1 user - username password recipes 
+2 recipe - user comments rating likes
+3 comments - time recipe user 
