@@ -8,16 +8,49 @@
 </head>
 <body>
     <div class="home-container">
+        <form class="search-bar" action="/search" method="GET" style="margin-bottom: 20px; display: flex; justify-content: flex-end;">
+            <input type="text" name="q" placeholder="Search recipes..." style="padding: 8px; font-size: 16px; border-radius: 4px 0 0 4px; border: 1px solid #ccc; border-right: none;">
+            <button type="submit" style="padding: 8px 16px; font-size: 16px; border-radius: 0 4px 4px 0; border: 1px solid #ccc; background: #ffe082; cursor: pointer;">Search</button>
+        </form>
         <h1>Welcome to Yummy!</h1>
         <p>Your website for sharing and discovering delicious cooking recipes.</p>
         <a href="/register">Register</a> | <a href="/login">Login</a>
         <hr>
         <h2>Featured Recipes</h2>
-        <ul>
-            <li>Spaghetti Carbonara</li>
-            <li>Classic Pancakes</li>
-            <li>Vegetable Stir Fry</li>
-        </ul>
+        <div class="recipe-grid">
+            <div class="recipe-card">
+                <img src="/images/carbonara.jpg" alt="Spaghetti Carbonara" class="recipe-img">
+                <div>Spaghetti Carbonara</div>
+            </div>
+            <div class="recipe-card">
+                <img src="/images/pancakes.jpg" alt="Classic Pancakes" class="recipe-img">
+                <div>Classic Pancakes</div>
+            </div>
+            <div class="recipe-card">
+                <img src="/images/stirfry.jpg" alt="Vegetable Stir Fry" class="recipe-img">
+                <div>Vegetable Stir Fry</div>
+            </div>
+            <div class="recipe-card">
+                <img src="/images/chickencurry.jpg" alt="Chicken Curry" class="recipe-img">
+                <div>Chicken Curry</div>
+            </div>
+            <div class="recipe-card">
+                <img src="/images/tacos.jpg" alt="Tacos" class="recipe-img">
+                <div>Tacos</div>
+            </div>
+            <div class="recipe-card">
+                <img src="/images/caesarsalad.jpg" alt="Caesar Salad" class="recipe-img">
+                <div>Caesar Salad</div>
+            </div>
+            <div class="recipe-card">
+                <img src="/images/chocolatecake.jpg" alt="Chocolate Cake" class="recipe-img">
+                <div>Chocolate Cake</div>
+            </div>
+            <div class="recipe-card">
+                <img src="/images/grilledcheese.jpg" alt="Grilled Cheese" class="recipe-img">
+                <div>Grilled Cheese</div>
+            </div>
+        </div>
         <p>Share your own recipes and connect with fellow cooking enthusiasts!</p>
     </div>
 </body>

@@ -2,6 +2,11 @@ var express = require('express');
 const passport = require('passport');
 var router = express.Router();
 var userModel = require("./users")
+const upload = require("./multer")
+
+const userModel = require("./users");
+const recipeModel = require("./recipe");
+const commentModel = require("./comments");
 
 const localStrategy = require("passport-local");
 
@@ -38,6 +43,20 @@ router.post('/register',function(req,res){
       });
     });
 })
+
+router.post('/upload', upload.single('image'),async function(req, res) {
+    const user = await userModel.findOne({username: req.session.passport.user});
+    const recipe = new recipeModel({
+        title: req.body.title,
+        image: req.file.filename,
+        ingredients: req.body.ingredients,
+        steps: req.body.steps,
+        user: user._id
+    });
+    user.recipes.push(recipe.id);
+    await user.save();
+    await recipe.save();
+  });
 
 router.post('/login', passport.authenticate('local',{
     successRedirect: "/",
