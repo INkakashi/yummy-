@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Recipe</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="upload-container">
+        <h2>Upload a New Recipe</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="title">Recipe Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div>
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" name="ingredients" rows="3" required></textarea>
+            </div>
+            <div>
+                <label for="steps">Steps:</label>
+                <textarea id="steps" name="steps" rows="4" required></textarea>
+            </div>
+            <div>
+                <label for="image">Recipe Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+            <button type="submit">Upload Recipe</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -18,38 +18,12 @@
         <hr>
         <h2>Featured Recipes</h2>
         <div class="recipe-grid">
-            <div class="recipe-card">
-                <img src="/images/carbonara.jpg" alt="Spaghetti Carbonara" class="recipe-img">
-                <div>Spaghetti Carbonara</div>
+            <% recipe.forEach(function(elem){%>
+                <div class="recipe-card">
+                <img src="/images/uploads/<%=elem.image%>" alt="Spaghetti Carbonara" class="recipe-img">
+                <%=elem.title%>
             </div>
-            <div class="recipe-card">
-                <img src="/images/pancakes.jpg" alt="Classic Pancakes" class="recipe-img">
-                <div>Classic Pancakes</div>
-            </div>
-            <div class="recipe-card">
-                <img src="/images/stirfry.jpg" alt="Vegetable Stir Fry" class="recipe-img">
-                <div>Vegetable Stir Fry</div>
-            </div>
-            <div class="recipe-card">
-                <img src="/images/chickencurry.jpg" alt="Chicken Curry" class="recipe-img">
-                <div>Chicken Curry</div>
-            </div>
-            <div class="recipe-card">
-                <img src="/images/tacos.jpg" alt="Tacos" class="recipe-img">
-                <div>Tacos</div>
-            </div>
-            <div class="recipe-card">
-                <img src="/images/caesarsalad.jpg" alt="Caesar Salad" class="recipe-img">
-                <div>Caesar Salad</div>
-            </div>
-            <div class="recipe-card">
-                <img src="/images/chocolatecake.jpg" alt="Chocolate Cake" class="recipe-img">
-                <div>Chocolate Cake</div>
-            </div>
-            <div class="recipe-card">
-                <img src="/images/grilledcheese.jpg" alt="Grilled Cheese" class="recipe-img">
-                <div>Grilled Cheese</div>
-            </div>
+            <%})%>
         </div>
         <p>Share your own recipes and connect with fellow cooking enthusiasts!</p>
     </div>
