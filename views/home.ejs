@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yummy! - Home</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <body>
     <div class="home-container">
-        <form class="search-bar" action="/search" method="GET" style="margin-bottom: 20px; display: flex; justify-content: flex-end;">
-            <input type="text" name="q" placeholder="Search recipes..." style="padding: 8px; font-size: 16px; border-radius: 4px 0 0 4px; border: 1px solid #ccc; border-right: none;">
-            <button type="submit" style="padding: 8px 16px; font-size: 16px; border-radius: 0 4px 4px 0; border: 1px solid #ccc; background: #ffe082; cursor: pointer;">Search</button>
+        <form class="search-bar" action="/search" method="post"
+            style="margin-bottom: 20px; display: flex; justify-content: flex-end;">
+            <input type="text" name="q" placeholder="Search recipes..."
+                style="padding: 8px; font-size: 16px; border-radius: 4px 0 0 4px; border: 1px solid #ccc; border-right: none;">
+            <button type="submit"
+                style="padding: 8px 16px; font-size: 16px; border-radius: 0 4px 4px 0; border: 1px solid #ccc; background: #ffe082; cursor: pointer;">Search</button>
         </form>
         <h1>Welcome to Yummy!</h1>
         <p>Your website for sharing and discovering delicious cooking recipes.</p>
@@ -20,12 +25,13 @@
         <div class="recipe-grid">
             <% recipe.forEach(function(elem){%>
                 <div class="recipe-card">
-                <img src="/images/uploads/<%=elem.image%>" alt="Spaghetti Carbonara" class="recipe-img">
-                <%=elem.title%>
-            </div>
-            <%})%>
+                    <img src="/images/uploads/<%=elem.image%>" alt="Spaghetti Carbonara" class="recipe-img">
+                    <%=elem.title%>
+                </div>
+                <%})%>
         </div>
         <p>Share your own recipes and connect with fellow cooking enthusiasts!</p>
     </div>
 </body>
+
 </html>

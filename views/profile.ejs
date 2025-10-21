@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="profile-container" style="max-width:400px;margin:40px auto;padding:30px;background:#fffbe7;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.07);text-align:center;">
+        <img src="<%= user.pic %>" alt="Profile Picture" style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:20px;border:2px solid #e2c275;">
+        <h2 style="margin-bottom:10px;"><%= user.username %></h2>
+        <p style="color:#555;font-size:16px;"><%= user.about %></p>
+
+    <% user.recipes.forEach(function(recipe) { %>
+        <div class="recipe-card" style="border:1px solid #ddd;padding:15px;margin:15px 0;border-radius:8px;text-align:left;">
+            <h3 style="margin-bottom:10px;"><a href="/recipe/<%= recipe._id %>" style="text-decoration:none;color:#333;"><%= recipe.name %></a></h3>
+            <img src="/images/uploads/<%=recipe.image%>"alt="images">
+            <%})%>
+        </div>
+    </div>
+</body>
+</html>
