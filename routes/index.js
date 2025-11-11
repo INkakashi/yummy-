@@ -28,7 +28,7 @@ router.get('/profile', isLoggedIn, async function(req, res, next) {
   username = req.session.passport.user;
   const user = await userModel.findOne({username: username}).populate('recipes');
   res.render('profile', { user: user });
-})
+});
 
 router.get('/upload', function(req, res, next) {
   res.render('upload');
@@ -37,6 +37,13 @@ router.get('/upload', function(req, res, next) {
 router.get('/update', function(req, res, next) {
   res.render('update');
 });
+
+router.get('/recipes/:recipeName', isLoggedIn, async function(req, res, next) {
+  const recipeName = req.params.recipeName;
+  const recipe = await recipeModel.findOne({name: recipeName}).populate('Comment');
+  res.render('recipeDetail', { recipe: recipe });
+  });
+
 
 router.get('/logout', function(req,res, next){
   req.logout(function(err){

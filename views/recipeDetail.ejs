@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="recipe-detail-container">
+        <h1><%= recipe.name %></h1>
+        <img src="/images/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" class="recipe-detail-img">
+        <h2>About this recipe</h2>
+        <p><%= recipe.ingredients %></p>
+        <p><%= recipe.instructions %></p>
+        <h2>Comments</h2>
+        <ul class="comments-list">
+            <% recipe.comments.forEach(function(comment) { %>
+                <li><strong><%= comment.user %>:</strong> <%= comment.text %></li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
