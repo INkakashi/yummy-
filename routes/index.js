@@ -7,6 +7,7 @@ const recipeModel = require("./recipe");
 const commentModel = require("./comment");
 
 const localStrategy = require("passport-local");
+const { name } = require('ejs');
 
 passport.use(new localStrategy(userModel.authenticate()));
 
@@ -38,10 +39,10 @@ router.get('/update', function(req, res, next) {
   res.render('update');
 });
 
-router.get('/recipes/:recipeName', isLoggedIn, async function(req, res, next) {
-  const recipeName = req.params.recipeName;
-  const recipe = await recipeModel.findOne({name: recipeName}).populate('Comment');
-  res.render('recipeDetail', { recipe: recipe });
+router.get('/recipes/:recipeName', isLoggedIn, function(req, res, next) {
+  const recipename = req.params.recipeName;
+  const recipe = recipeModel.findOne({name:recipename}).populate("comments")
+  res.render('recipeDetail',{recipe:recipe});
   });
 
 
