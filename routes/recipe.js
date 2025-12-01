@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.set('strictPopulate', false);
 
 const recipeSchema = mongoose.Schema({
     name: String,
@@ -6,7 +7,7 @@ const recipeSchema = mongoose.Schema({
     instructions: String,
     image: String,
     user: {type: mongoose.Schema.Types.ObjectId, ref: "user"},
-    Comment: [{type: mongoose.Schema.Types.ObjectId, ref: "comments"}]
+    comments: [{type: mongoose.Schema.Types.ObjectId, ref: "comments"}]
 });
 
 module.exports = mongoose.model('recipes',recipeSchema);

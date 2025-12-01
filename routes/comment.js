@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+mongoose.set('strictPopulate', false);
 
 const commentSchema = mongoose.Schema({
     text: String,
-    user: {type: mongoose.Schema.Types.ObjectId, ref: "user"},
+    user: String,
     recipe: {type: mongoose.Schema.Types.ObjectId, ref: "recipes"}
 });
 

@@ -39,11 +39,11 @@ router.get('/update', function(req, res, next) {
   res.render('update');
 });
 
-router.get('/recipes/:recipeName', isLoggedIn, function(req, res, next) {
+router.get('/recipes/:recipeName', isLoggedIn, async function(req, res, next) {
   const recipename = req.params.recipeName;
-  const recipe = recipeModel.findOne({name:recipename}).populate("comments")
+  const recipe = await recipeModel.findOne({name:recipename}).populate('comments');
   res.render('recipeDetail',{recipe:recipe});
-  });
+});
 
 
 router.get('/logout', function(req,res, next){
@@ -52,6 +52,25 @@ router.get('/logout', function(req,res, next){
     res.redirect('/');
   });
 });
+
+router.post('/recipes/comments', isLoggedIn, async function(req, res) {
+  const username = req.session.passport.user;
+  const user = await userModel.findOne({username: username});
+  const recipeName = req.body.recipeName;
+  const recipe = await recipeModel.findOne({name: recipeName}).populate('comments');
+
+  const comment = new commentModel({
+    text: req.body.commentText,
+    user: username,
+    recipe: recipe._id
+  });
+  await comment.save();
+  recipe.comments.push(comment._id);
+  await recipe.save();
+  
+  res.redirect('/recipes/' + recipeName);
+});
+
 
 router.post('/register',function(req,res){
   var userdata = new userModel({

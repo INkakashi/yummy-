@@ -6,10 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-  <% if (recipe) { %>
     <h1><%= recipe.name %></h1>
-  <% } else { %>
-    <h1>No recipe data</h1>
-  <% } %>
+    <h2><%= recipe.description %></h2>
+    <img src="/images/uploads/<%=recipe.image%>" alt="image">
+    <h3>Ingredients:
+         <p><%= recipe.ingredients %></p>
+    </h3>
+    <h3>Instructions:
+        <p><%= recipe.instructions %></p>
+    </h3>
+
+    <h2>Comments:</h2>
+    <form action="/recipes/comments" method="POST">
+        <input type="hidden" name="recipeName" value="<%= recipe.name %>">
+        <input type="text" name="commentText" required>
+        <button type="submit">Add Comment</button>
+    
+        <% recipe.comments.forEach(function(comment){ %>
+            <div><strong><%=comment.user%></strong></div>
+            <div><%= comment.text %></div>
+        <% }); %>
+    
 </body>
 </html>
